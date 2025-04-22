@@ -9,27 +9,27 @@ const originalError = console.error;
 // Override console.log
 console.log = function (...args) {
   const message = args.map(String).join(' ');
-  cLog.push("[LOG]: ", message)
+  cLog.push("[LOG]: " + message);
   originalLog.apply(console, args);
 };
 
 // Override console.info
 console.info = function (...args) {
   const message = args.map(String).join(' ');
-  alert(message);
+  cLog.push("[INFO]: " + message);
   originalInfo.apply(console, args);
 };
 
 // Override console.warn
 console.warn = function (...args) {
   const message = args.map(String).join(' ');
-  alert(message);
+  cLog.push("[WARN]: " + message);
   originalWarn.apply(console, args);
 };
 
 // Override console.error
 console.error = function (...args) {
   const message = args.map(String).join(' ');
-  alert(message);
+  cLog.push("[ERROR]: " + message);
   originalError.apply(console, args);
 };
